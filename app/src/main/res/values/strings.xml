@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">StateFlow DataBinding</string>
+
+    <string name="load_data">Load saved data</string>
+    <string name="add_data_hint">Add a data</string>
+</resources>

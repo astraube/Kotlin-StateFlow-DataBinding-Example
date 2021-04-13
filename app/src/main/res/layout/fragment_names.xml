@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.github.astraube.stateflowbinding.ui.names.NamesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.names.NamesFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="4dp" />
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:id="@+id/progressLayout"
+            android:tag="progressLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="0dp"
+            android:layout_marginTop="-10dp"
+            android:indeterminateOnly="true"
+            android:indeterminateTint="@color/purple_200"
+            android:max="100"
+            android:progress="45"
+            app:isLoadingTop="@{viewModel.uiState}"
+            app:layout_constraintBottom_toTopOf="@+id/guideProgress"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="lollipop" />
+
+        <!-- GuideLine Left -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/spacing_guideline_page_left"
+            />
+        <!-- GuideLine Right -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/spacing_guideline_page_right"
+            />
+        <!-- GuideLine Top -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/spacing_guideline_page_top"
+            />
+        <!-- GuideLine Bottom -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="55dp" />
+
+        <TextView
+            android:id="@+id/tvData"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@{viewModel.dataList}"
+            app:goneUnless="@{viewModel.dataList}"
+            app:layout_constraintBottom_toTopOf="@+id/guideBottom"
+            app:layout_constraintEnd_toStartOf="@+id/guideRight"
+            app:layout_constraintStart_toStartOf="@+id/guideLeft"
+            app:layout_constraintTop_toTopOf="@+id/guideTop"
+            tools:text="names list here"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/btnLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/load_data"
+            android:onClick="@{v -> viewModel.loadData()}"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+            app:layout_constraintEnd_toStartOf="@+id/guideRight"
+            app:layout_constraintStart_toStartOf="@+id/guideLeft" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSend"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/send"
+            android:drawableRight="@drawable/send"
+            android:onClick="@{v -> viewModel.addData(v)}"
+            android:theme="@style/Theme.KotlinStateFlowDataBindingExample.LightButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideRight"
+            app:layout_constraintTop_toTopOf="@+id/textInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/add_data_hint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@={viewModel.newName}"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- general spacing -->
+    <dimen name="spacing_xsmall">2dp</dimen>
+    <dimen name="spacing_small">3dp</dimen>
+    <dimen name="spacing_medium">5dp</dimen>
+    <dimen name="spacing_xmedium">8dp</dimen>
+    <dimen name="spacing_middle">10dp</dimen>
+    <dimen name="spacing_middle_large">12dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_smlarge">18dp</dimen>
+    <dimen name="spacing_mlarge">20dp</dimen>
+    <dimen name="spacing_mxlarge">25dp</dimen>
+    <dimen name="spacing_xlarge">35dp</dimen>
+    <dimen name="spacing_xmlarge">40dp</dimen>
+    <dimen name="spacing_xxlarge">50dp</dimen>
+    <dimen name="spacing_xxxlarge">55dp</dimen>
+
+    <dimen name="spacing_guideline_page_left">@dimen/spacing_large</dimen>
+    <dimen name="spacing_guideline_page_right">@dimen/spacing_large</dimen>
+    <dimen name="spacing_guideline_page_top">@dimen/spacing_middle</dimen>
+    <dimen name="spacing_guideline_page_bottom">@dimen/spacing_large</dimen>
+
+    <dimen name="spacing_guideline_card_left">@dimen/spacing_large</dimen>
+    <dimen name="spacing_guideline_card_right">@dimen/spacing_large</dimen>
+    <dimen name="spacing_guideline_card_top">@dimen/spacing_middle</dimen>
+    <dimen name="spacing_guideline_card_bottom">@dimen/spacing_large</dimen>
+</resources>

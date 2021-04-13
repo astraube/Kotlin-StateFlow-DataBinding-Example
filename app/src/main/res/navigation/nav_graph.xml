@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/NamesFragment">
+
+    <fragment
+        android:id="@+id/NamesFragment"
+        android:name="com.github.astraube.stateflowbinding.ui.names.NamesFragment"
+        android:label="Names List"
+        tools:layout="@layout/fragment_names" />
+
+</navigation>
